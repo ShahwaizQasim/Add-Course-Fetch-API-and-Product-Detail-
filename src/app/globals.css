@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+.header{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding-top: 20px;
+  font-weight: 500;
+  font-size: 1rem;
+  color: white;
+  background-color: #000;
+  padding: 10px;
+}
+
+.parent{
+  height: 100vh;
+  display: flex;
+  border: 2px solid red;
+}
+.leftSide{
+  height: 300px;
+  width: 30%;
+  border :2px solid red;
+}
+.rightSide{
+  height: 300px;
+  width: 70%;
+  border: 2px solid red;
+}
+form{
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  gap: 10px;
+  margin-bottom: 40px !important;
+}
+.myInput{
+  height: 40px;
+  width: 200px;
+  border: 1px solid #ccc;
+  padding: 6px;
+}
+.myButton{
+  height: 40px;
+  width: 100px;
+  border: 1px solid #ccc;
+}
+.myButton:active{
+  transform: scale(0.9);
+}
