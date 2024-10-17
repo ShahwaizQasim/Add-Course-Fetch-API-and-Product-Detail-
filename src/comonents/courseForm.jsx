@@ -4,10 +4,10 @@ import addCourse from "@/app/actions/course";
 
 export default function AddCourseForm() {
   const handleOnAddTodo = async (formData) => {
-     let obj = {
-        title: formData.get('title'),
-        duration: formData.get('duration'),
-     }
+    let obj = {
+      title: formData.get('title'),
+      duration: formData.get('duration'),
+    }
     await addCourse(obj);
   };
 
