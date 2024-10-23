@@ -73,3 +73,13 @@ form{
 .myButton:active{
   transform: scale(0.9);
 }
+.myInput{
+  height: 30px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+.myButton{
+  height: 30px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+}
