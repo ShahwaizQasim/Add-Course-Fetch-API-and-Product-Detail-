@@ -1,7 +1,9 @@
 import Link from "next/link";
 
 async function Posts() {
-  let res = await fetch("https://dummyjson.com/products");
+  let res = await fetch("https://dummyjson.com/products",{
+    cache:'no-cache'
+  });
   res = await res.json();
   console.log(res);
 
