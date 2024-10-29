@@ -3,17 +3,15 @@
 import addCourse from "@/app/action/course";
 
 function AddCourseForm() {
-  try {
-    const handleOnAddTodo = async (formData) => {
+   
+  const handleOnAddTodo = async (formData) => {
       const obj = {
         title: formData.get("title"),
         duration: formData.get("duration"),
       };
       await addCourse(obj);
-    };
-  } catch (error) {
-    console.log(error.message);
-  }
+    }
+  
 
   return (
     <form action={handleOnAddTodo}>
