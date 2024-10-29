@@ -4,17 +4,17 @@ import addCourse from "@/app/action/course";
 
 function AddCourseForm() {
    
-  // const handleOnAddTodo = async (formData) => {
-  //     const obj = {
-  //       title: formData.get("title"),
-  //       duration: formData.get("duration"),
-  //     };
-  //     await addCourse(obj);
-  //   }
+  const handleOnAddTodo = async (formData) => {
+      const obj = {
+        title: formData.get("title"),
+        duration: formData.get("duration"),
+      };
+      await addCourse(obj);
+    }
   
 
   return (
-    <form>
+    <form action={handleOnAddTodo}>
       <input
         type="text"
         placeholder="Enter Title"
