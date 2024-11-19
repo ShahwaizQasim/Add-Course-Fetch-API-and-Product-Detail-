@@ -4,7 +4,7 @@ const { revalidatePath } = require("next/cache");
 
 async function addCourse(obj) {
   try {
-    await fetch(`${process.env.API_URL}api/courses`, {
+    await fetch(` http://localhost:3000/api/courses`, {
       method: "POST",
       body: JSON.stringify(obj),
     });

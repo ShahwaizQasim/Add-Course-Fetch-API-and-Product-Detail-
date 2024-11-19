@@ -1,20 +1,27 @@
 "use client";
 
 import addCourse from "@/app/action/course";
+import { useRef } from "react";
 
 function AddCourseForm() {
-   
+
+  const formRef = useRef(null);
+  console.log("formRef", formRef);
+
+
   const handleOnAddTodo = async (formData) => {
-      const obj = {
-        title: formData.get("title"),
-        duration: formData.get("duration"),
-      };
-      await addCourse(obj);
-    }
-  
+    const obj = {
+      title: formData.get("title"),
+      duration: formData.get("duration"),
+    };
+    await addCourse(obj);
+
+    formRef?.current?.reset();
+  }
+
 
   return (
-    <form action={handleOnAddTodo}>
+    <form action={handleOnAddTodo} ref={formRef}>
       <input
         type="text"
         placeholder="Enter Title"
