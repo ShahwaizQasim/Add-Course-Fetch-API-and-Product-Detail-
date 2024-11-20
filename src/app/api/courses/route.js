@@ -1,5 +1,3 @@
-import ConnectDB from "@/app/lib/dbConnect";
-import { CourseModal } from "@/app/lib/modals/courseModal";
 
 const course = [
   {
@@ -28,24 +26,24 @@ const course = [
   },
 ];
 
-export async function GET(request) {
-  await ConnectDB();
+export async function POST(request) {
+  let obj = await request.json();
+  obj.id = course.length + 1;
+  course.unshift(obj);
+
   return Response.json({
+    error: false,
+    courses: course,
+    msg: "courses added successfully",
+  });
+}
+
+export async function GET(request) {
+  return Response.json({
+    error: false,
     courses: course,
     msg: "Course Fetch Successfully ",
   });
 }
 
-export async function POST(request) {
-  await ConnectDB();
-  let obj = await request.json();
-  obj.id = course.length + 1;
-  course.unshift(obj);
 
-  let newCourse = new CourseModal({ ...obj });
-  newCourse = await newCourse.save();
-  return Response.json({
-    courses: newCourse,
-    msg: "courses added successfully",
-  });
-}

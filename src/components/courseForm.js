@@ -14,7 +14,6 @@ function AddCourseForm() {
       duration: formData.get("duration"),
       isCompleted: false,
     };
-
     await addCourse(obj);
 
     formRef?.current?.reset();
