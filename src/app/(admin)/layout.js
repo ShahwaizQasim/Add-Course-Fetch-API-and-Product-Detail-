@@ -1,6 +1,6 @@
 import Link from "next/link";
 import "../globals.css";
-import Header from "@/comonents/header";
+import Header from "@/components/header";
 
 export default function DashboardLayout({ children }) {
   return (

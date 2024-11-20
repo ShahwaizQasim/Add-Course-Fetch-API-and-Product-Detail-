@@ -6,14 +6,15 @@ import { useRef } from "react";
 function AddCourseForm() {
 
   const formRef = useRef(null);
-  console.log("formRef", formRef);
-
 
   const handleOnAddTodo = async (formData) => {
+
     const obj = {
       title: formData.get("title"),
       duration: formData.get("duration"),
+      isCompleted: false,
     };
+
     await addCourse(obj);
 
     formRef?.current?.reset();
