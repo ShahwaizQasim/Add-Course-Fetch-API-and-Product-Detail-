@@ -26,6 +26,14 @@ const course = [
   },
 ];
 
+export async function GET(request) {
+  return Response.json({
+    error: false,
+    courses: course,
+    msg: "Course Fetch Successfully ",
+  });
+}
+
 export async function POST(request) {
   let obj = await request.json();
   obj.id = course.length + 1;
@@ -38,12 +46,17 @@ export async function POST(request) {
   });
 }
 
-export async function GET(request) {
+export async function PUT(request) {
+  let data = await request.json();
+
+  let courseInd = course.findIndex((course) => course.id == data.id);
+  course[courseInd] = data;
   return Response.json({
     error: false,
     courses: course,
-    msg: "Course Fetch Successfully ",
+    msg: "courses updated successfully",
   });
 }
+
 
 
