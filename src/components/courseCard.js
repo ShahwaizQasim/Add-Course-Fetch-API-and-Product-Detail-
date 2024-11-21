@@ -1,6 +1,6 @@
 'use client'
 
-import { updateTodo } from "@/app/action/course";
+import { DeleteTodo, updateTodo } from "@/app/action/course";
 import "../app/globals.css"
 import { useState } from "react";
 
@@ -30,7 +30,10 @@ export default function CourseCard({ item }) {
       setDuration(item?.duration)
     }
   }
-  
+
+  const onDelete = async () => {
+    await DeleteTodo({id: item.id})
+  }
 
   return (
     <div className="flex justify-center">
@@ -52,13 +55,12 @@ export default function CourseCard({ item }) {
             <h6 className="text-1xl mt-2">{item?.duration}</h6>
         }
 
-
         <button className="h-6 w-16 bg-black text-white text-xs rounded mt-3"
           onClick={OnComplete}
         >{!item.isCompleted ? "Done" : "Not Done"}
         </button>
         <button onClick={onEdit} className="h-6 w-12 bg-black text-white text-xs rounded mt-3">Edit</button>
-        <button className="h-6 w-12 bg-black text-white text-xs rounded mt-3 mb-4">Delete</button>
+        <button onClick={onDelete} className="h-6 w-12 bg-black text-white text-xs rounded mt-3 mb-4">Delete</button>
 
       </div>
     </div>

@@ -48,13 +48,24 @@ export async function POST(request) {
 
 export async function PUT(request) {
   let data = await request.json();
-
   let courseInd = course.findIndex((course) => course.id == data.id);
   course[courseInd] = data;
   return Response.json({
     error: false,
     courses: course,
     msg: "courses updated successfully",
+  });
+}
+
+
+export async function DELETE(request) {
+  let data = await request.json();
+  let courseInd = course.findIndex((course) => course.id == data.id);
+  course.splice(courseInd, 1)
+  return Response.json({
+    error: false,
+    courses: course,
+    msg: "courses deleted successfully",
   });
 }
 

@@ -3,7 +3,6 @@
 const { revalidatePath } = require("next/cache");
 
 export default async function addCourse(obj) {
-  
   try {
     await fetch(`http://localhost:3000/api/courses`, {
       method: "POST",
@@ -16,11 +15,21 @@ export default async function addCourse(obj) {
 }
 
 export async function updateTodo(obj) {
-  console.log('obj in server action', obj);
-  
   try {
     await fetch(` http://localhost:3000/api/courses`, {
       method: "PUT",
+      body: JSON.stringify(obj),
+    });
+    revalidatePath("/courses");
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export async function DeleteTodo(obj) {
+  try {
+    await fetch(`${process.env.API_URL}api/courses`, {
+      method: "DELETE",
       body: JSON.stringify(obj),
     });
     revalidatePath("/courses");
