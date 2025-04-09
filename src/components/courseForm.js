@@ -4,10 +4,14 @@ import addCourse from "@/app/action/course";
 import { useRef } from "react";
 
 function AddCourseForm() {
-
   const formRef = useRef(null);
 
-  const handleOnAddTodo = async (formData) => {
+  const handleOnAddTodo = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(formRef.current);
+
+    console.log("formData", formData.get("title"));
 
     const obj = {
       title: formData.get("title"),
@@ -15,13 +19,11 @@ function AddCourseForm() {
       isCompleted: false,
     };
     await addCourse(obj);
-
     formRef?.current?.reset();
-  }
-
+  };
 
   return (
-    <form action={handleOnAddTodo} ref={formRef}>
+    <form onSubmit={handleOnAddTodo} ref={formRef}>
       <input
         type="text"
         placeholder="Enter Title"

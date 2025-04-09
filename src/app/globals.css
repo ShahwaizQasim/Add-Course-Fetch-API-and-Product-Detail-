@@ -64,14 +64,20 @@ form{
   width: 200px;
   border: 1px solid #ccc;
   padding: 6px;
+  color: black;
 }
 .myButton{
   height: 40px;
   width: 100px;
   border: 1px solid #ccc;
+  transition: 0.8s;
 }
 .myButton:active{
   transform: scale(0.9);
+}
+.myButton:hover{
+   background-color: white;
+   color: #000;
 }
 .myInput{
   height: 30px;

@@ -43,14 +43,14 @@ export default function CourseCard({ item }) {
 
         {
           isEdit ?
-            <input className="h-9 mt-3 border-[1px] border-[#ccc] outline-none" value={title} onChange={(e) => setTitle(e.target.value)} />
+            <input className="h-9 mt-3 border-[1px] border-[#ccc] outline-none text-black" value={title} onChange={(e) => setTitle(e.target.value)} />
             : <h2 className=" font-bold pt-4">{item?.title}</h2>
         }
 
         {
 
           isEdit ?
-            <input className="h-9 mt-3 border-[1px] border-[#ccc] outline-none"
+            <input className="h-9 mt-3 border-[1px] text-black border-[#ccc] outline-none"
               value={duration} onChange={(e) => setDuration(e.target.value)} /> :
             <h6 className="text-1xl mt-2">{item?.duration}</h6>
         }
